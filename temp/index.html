@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="QC - Gậy & Bàn Bi-a" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quân Chí || Billiards</title>
+
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <link rel="stylesheet" href="css/responsive.css" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="billiards_overlay"></div>
+
+    <div class="billiards_wrapper">
+      <div class="billiards_logo">
+        <a href="#"><img src="./Images/logo.png" alt="Logo" /></a>
+      </div>
+    </div>
+
+    <header class="header">
+      <div class="header__top">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 col-md-6">
+              <div class="header__top__left">
+                <ul>
+                  <li><i class="fa fa-envelope"></i> hello@QC.vn</li>
+                  <li><i class="fa fa-phone"></i> 090x xxx xxx</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <div class="header__top__right">
+                <div class="header__top__right__social">
+                  <a href="#"><i class="fa fa-facebook"></i></a>
+                  <a href="#"><i class="fa fa-youtube-play"></i></a>
+                  <a href="#"><i class="fa fa-instagram"></i></a>
+                </div>
+                <div class="header__top__right__auth">
+                  <a href="#"><i class="fa fa-user"></i> Đăng nhập</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="header__main">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-3">
+              <div class="header__logo">
+                <a href="#"><img src="./Images/logo.png" alt="QC Logo" /></a>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="header__search">
+                <div class="search__dropdown">
+                  <div class="dropdown__toggle">
+                    Tất cả danh mục <i class="fa fa-angle-down"></i>
+                  </div>
+                  <ul class="dropdown__menu">
+                    <li><a href="#" data-filter=".tables">Bàn Bi-a</a></li>
+                    <li><a href="#" data-filter=".cues">Gậy Bi-a</a></li>
+                    <li><a href="#" data-filter=".accessories">Phụ kiện</a></li>
+                    <li><a href="#" data-filter=".balls">Bóng</a></li>
+                  </ul>
+                </div>
+                <input
+                  type="text"
+                  id="searchInput"
+                  placeholder="Bạn cần tìm gì?"
+                />
+                <button type="button" id="searchBtn">
+                  <i class="fa fa-search"></i>
+                </button>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="header__cart text-right">
+                <ul>
+                  <li>
+                    <a href="#"
+                      ><i class="fa fa-heart"></i
+                      ><span id="favCount">0</span></a
+                    >
+                  </li>
+                  <li>
+                    <a href="#" id="cartBtn"
+                      ><i class="fa fa-shopping-bag"></i
+                      ><span id="cartCount">0</span></a
+                    >
+                  </li>
+                </ul>
+                <div class="header__cart__price">
+                  Tổng: <span id="cartPrice">0₫</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="header__bottom">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3">
+              <div class="header__departments">
+                <div class="departments__icon">
+                  <i class="fa fa-bars"></i>
+                  <span>Tất cả danh mục</span>
+                </div>
+                <ul class="departments__menu">
+                  <li data-filter=".tables"><a href="#">Bàn Bi-a</a></li>
+                  <li data-filter=".cues"><a href="#">Gậy Bi-a</a></li>
+                  <li data-filter=".accessories"><a href="#">Phụ kiện</a></li>
+                  <li data-filter=".balls"><a href="#">Bóng</a></li>
+                  <li><a href="#">Sản phẩm khuyến mãi</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-9">
+              <nav class="header__menu">
+                <ul>
+                  <li class="active"><a href="#">Trang chủ</a></li>
+                  <li><a href="#shop">Sản phẩm</a></li>
+                  <li><a href="#blog">Bài viết</a></li>
+                  <li><a href="#contact">Liên hệ</a></li>
+                  <li class="mobile__department__toggle">
+                    <a href="#">Danh mục</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-9 offset-lg-3">
+            <div class="hero__item set-bg" data-setbg="./Images/background.jpg">
+              <div class="hero__text">
+                <span>Chuyên nghiệp</span>
+                <h2>Bàn Bi-a <br />Chất lượng cao</h2>
+                <p>Giao lắp & bảo hành tận nơi • Trả góp 0%</p>
+                <a href="#shop" class="primary-btn">XEM SẢN PHẨM</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="featured spad" id="shop">
+      <div class="container">
+        <div class="section-title">
+          <h2>Sản phẩm nổi bật</h2>
+        </div>
+        <div class="row featured__filter" id="productGrid">
+          <div class="col-lg-3 col-md-4 col-sm-6 mix tables" data-id="B1">
+            <div class="featured__item">
+              <div
+                class="featured__item__pic set-bg"
+                data-setbg="./Images/ban.jpg"
+              >
+                <ul class="featured__item__pic__hover">
+                  <li>
+                    <a href="#" class="fav-btn" data-id="B1"
+                      ><i class="fa fa-heart-o"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#" class="quickview-btn" data-id="B1"
+                      ><i class="fa fa-eye"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#" class="addcart-btn" data-id="B1"
+                      ><i class="fa fa-shopping-cart"></i
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+              <div class="featured__item__text">
+                <img src="./Images/ban.jpg" alt="" width="100%" height="100%" />
+                <h6>Bàn Rasson HERO 8ft</h6>
+                <h5>45.000.000₫</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 mix cues" data-id="C1">
+            <div class="featured__item">
+              <div
+                class="featured__item__pic set-bg"
+                data-setbg="./Images/anh5.jpg"
+              >
+                <ul class="featured__item__pic__hover">
+                  <li>
+                    <a href="#" class="fav-btn" data-id="C1"
+                      ><i class="fa fa-heart-o"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#" class="quickview-btn" data-id="C1"
+                      ><i class="fa fa-eye"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#" class="addcart-btn" data-id="C1"
+                      ><i class="fa fa-shopping-cart"></i
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+              <div class="featured__item__text">
+                <img
+                  src="./Images/anh1.jpg"
+                  alt=""
+                  width="100%"
+                  height="100%"
+                />
+                <h6>Gậy Cuetec Pro X</h6>
+                <h5>4.500.000₫</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 mix accessories" data-id="A1">
+            <div class="featured__item">
+              <div
+                class="featured__item__pic set-bg"
+                data-setbg="./Images/bao.jpg"
+              >
+                <ul class="featured__item__pic__hover">
+                  <li>
+                    <a href="#" class="fav-btn" data-id="A1"
+                      ><i class="fa fa-heart-o"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#" class="quickview-btn" data-id="A1"
+                      ><i class="fa fa-eye"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#" class="addcart-btn" data-id="A1"
+                      ><i class="fa fa-shopping-cart"></i
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+              <div class="featured__item__text">
+                <img src="./Images/bao.jpg" alt="" width="100%" height="100%" />
+                <h6>Bao gậy leather</h6>
+                <h5>350.000₫</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 mix balls" data-id="BL1">
+            <div class="featured__item">
+              <div
+                class="featured__item__pic set-bg"
+                data-setbg="./Images/aramithball.jpg"
+              >
+                <ul class="featured__item__pic__hover">
+                  <li>
+                    <a href="#" class="fav-btn" data-id="BL1"
+                      ><i class="fa fa-heart-o"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#" class="quickview-btn" data-id="BL1"
+                      ><i class="fa fa-eye"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#" class="addcart-btn" data-id="BL1"
+                      ><i class="fa fa-shopping-cart"></i
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+              <div class="featured__item__text">
+                <img
+                  src="./Images/aramithball.jpg"
+                  alt=""
+                  width="100%"
+                  height="100%"
+                />
+                <h6>Bóng Aramith Premium</h6>
+                <h5>1.200.000₫</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 mix tables" data-id="B2">
+            <div class="featured__item">
+              <div
+                class="featured__item__pic set-bg"
+                data-setbg="./Images/ban_club.jpg"
+              >
+                <ul class="featured__item__pic__hover">
+                  <li>
+                    <a href="#" class="fav-btn" data-id="B2"
+                      ><i class="fa fa-heart-o"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#" class="quickview-btn" data-id="B2"
+                      ><i class="fa fa-eye"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#" class="addcart-btn" data-id="B2"
+                      ><i class="fa fa-shopping-cart"></i
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+              <div class="featured__item__text">
+                <img
+                  src="./Images/anh2.jpg"
+                  alt=""
+                  width="100%"
+                  height="100%"
+                />
+                <h6>Gậy 7ft</h6>
+                <h5>18.000.000₫</h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 col-sm-6 mix cues" data-id="C2">
+            <div class="featured__item">
+              <div
+                class="featured__item__pic set-bg"
+                data-setbg="./Images/gay_classic.jpg"
+              >
+                <ul class="featured__item__pic__hover">
+                  <li>
+                    <a href="#" class="fav-btn" data-id="C2"
+                      ><i class="fa fa-heart-o"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#" class="quickview-btn" data-id="C2"
+                      ><i class="fa fa-eye"></i
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="#" class="addcart-btn" data-id="C2"
+                      ><i class="fa fa-shopping-cart"></i
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+              <div class="featured__item__text">
+                <img
+                  src="./Images/anh3.jpg"
+                  alt=""
+                  width="100%"
+                  height="100%"
+                />
+                <h6>Gậy MIT Classic</h6>
+                <h5>2.200.000₫</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="banner">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-6">
+            <div class="banner__pic"></div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="banner__pic"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="from-blog spad" id="blog">
+      <div class="container">
+        <div class="section-title from-blog__title">
+          <h2>Tin tức & Hướng dẫn</h2>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="blog__item">
+              <div class="blog__item__pic"></div>
+              <div class="blog__item__text"></div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="blog__item">
+              <div class="blog__item__pic"></div>
+              <div class="blog__item__text"></div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-6">
+            <div class="blog__item">
+              <div class="blog__item__pic"></div>
+              <div class="blog__item__text"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer spad" id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="footer__about">
+              <div class="footer__about__logo">
+                <a href="./index.html"
+                  ><img src="./Images/logo.png" alt="QC Logo"
+                /></a>
+              </div>
+              <ul>
+                <li><strong>Địa chỉ:</strong> 450-451 Lê Văn Việt, TP.HCM</li>
+                <li><strong>Điện thoại:</strong> 0909 999 999</li>
+                <li><strong>Email:</strong> hello@QC.vn</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
+            <div class="footer__widget">
+              <h6>Liên kết nhanh</h6>
+              <div class="row">
+                <div class="col-lg-6">
+                  <ul>
+                    <li><a href="#">Về chúng tôi</a></li>
+                    <li><a href="#shop">Sản phẩm</a></li>
+                    <li><a href="#blog">Tin tức</a></li>
+                    <li><a href="#contact">Liên hệ</a></li>
+                  </ul>
+                </div>
+                <div class="col-lg-6">
+                  <ul>
+                    <li><a href="#">Chính sách bảo hành</a></li>
+                    <li><a href="#">Chính sách đổi trả</a></li>
+                    <li><a href="#">Hướng dẫn mua hàng</a></li>
+                    <li><a href="#">Điều khoản sử dụng</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-12">
+            <div class="footer__widget">
+              <h6>Đăng ký nhận tin</h6>
+              <p>
+                Nhận thông báo về sản phẩm mới, khuyến mãi và sự kiện billiards
+                hấp dẫn!
+              </p>
+              <form action="#">
+                <input
+                  type="email"
+                  id="subscribeEmail"
+                  placeholder="Nhập email của bạn"
+                  required
+                />
+                <button type="button" id="subscribeBtn" class="site-btn">
+                  Đăng ký
+                </button>
+              </form>
+              <div class="footer__widget__social">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+                <a href="#"><i class="fa fa-youtube-play"></i></a>
+                <a href="#"><i class="fa fa-envelope"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="footer__copyright">
+              <div class="footer__copyright__text">
+                <p>
+                  ©
+                  <script>
+                    document.write(new Date().getFullYear());
+                  </script>
+                  <strong>QC Billiards</strong> | Designed by Quân Chí.
+                  <br />Chuyên cung cấp bàn bi-a, gậy bi-a & phụ kiện chính
+                  hãng.
+                </p>
+              </div>
+              <div class="footer__copyright__payment"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="quick-view-modal" id="quickModal">
+      <div class="quick-view-modal-content">
+        <span class="quick-view-modal-close" id="qmClose">&times;</span>
+        <div class="row">
+          <div class="col-lg-6 col-md-6">
+            <div class="product__details__pic">
+              <img id="qmImg" src="" alt="Sản phẩm xem nhanh" />
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <div class="product__details__text">
+              <h3 id="qmTitle">Tên Sản Phẩm</h3>
+              <div class="product__details__price" id="qmPrice">0₫</div>
+              <p id="qmDesc">Mô tả chi tiết sản phẩm.</p>
+              <div class="product__details__button">
+                <a href="#" class="site-btn" id="qmAddCart" data-id=""
+                  >Thêm vào giỏ</a
+                >
+                <a href="#" class="heart-icon fav-btn" data-id=""
+                  ><i class="fa fa-heart-o"></i
+                ></a>
+              </div>
+              <div class="product__details__quantity mt-3">
+                <p>Tình trạng: **Còn hàng**</p>
+                <p>Danh mục: <strong id="qmCategory">Bàn Bi-a</strong></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mixitup@3.3.1/dist/mixitup.min.js"></script>
+    <script src="responsive.js"></script>
+    <script src="billiards.js"></script>
+  </body>
+</html>

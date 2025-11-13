@@ -1,0 +1,127 @@
+@media (max-width: 991px) {
+  .hero__item {
+    height: 380px;
+  }
+  /* ⭐ ĐÃ XÓA: height: 350px; cho .featured__item__pic */
+
+  /* ⭐️ ĐÃ TĂNG LÊN: 400px (Giữ nguyên) */
+  .banner__pic img {
+    height: 400px;
+  }
+
+  /* Bổ sung: Điều chỉnh Thanh tìm kiếm (Giữ nguyên) */
+  .header__search {
+    max-width: none;
+    order: 4;
+    margin: 10px 0 0;
+  }
+  .search-form {
+    max-width: none;
+    width: 100%;
+  }
+  #searchInput {
+    width: 100%;
+  }
+  .header__cart {
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .header__menu {
+    display: none;
+  }
+  .hero__item {
+    height: 320px;
+  }
+  /* ⭐ ĐÃ XÓA: height: 320px; cho .featured__item__pic */
+
+  /* ⭐️ ĐÃ TĂNG LÊN: 350px (Giữ nguyên) */
+  .banner__pic img {
+    height: 350px;
+  }
+  .blog__item__pic img {
+    height: 200px;
+  }
+  .header__logo img {
+    height: 40px;
+  }
+  .header__cart ul {
+    gap: 10px;
+  }
+
+  .header__cart {
+    justify-content: flex-end;
+    gap: 5px;
+  }
+  .header__cart__price {
+    display: none;
+  }
+
+  /* (Giữ nguyên phần còn lại) */
+  .footer__copyright {
+    flex-direction: column;
+    text-align: center;
+  }
+  .footer__copyright__text {
+    margin-bottom: 10px;
+  }
+
+  .quick-view-modal-content {
+    margin: 10px auto;
+    padding: 15px;
+    width: 95%;
+  }
+  .product__details__text {
+    padding-top: 10px;
+    text-align: left;
+  }
+  .product__details__text h3 {
+    font-size: 24px;
+  }
+  .product__details__pic,
+  .product__details__text {
+    margin-bottom: 15px;
+  }
+
+  .filter-controls li {
+    font-size: 15px;
+    margin: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__item {
+    height: 260px;
+  }
+  /* ⭐ ĐÃ XÓA: height: 280px; cho .featured__item__pic */
+
+  /* ⭐️ ĐÃ TĂNG LÊN: 280px (Giữ nguyên) */
+  .banner__pic img {
+    height: 280px;
+  }
+  .blog__item__pic img {
+    height: 170px;
+  }
+  .section-title h2 {
+    font-size: 22px;
+  }
+  .featured__item__text h5 {
+    font-size: 14px;
+  }
+
+  /* (Giữ nguyên phần còn lại) */
+  .filter-controls {
+    white-space: nowrap;
+    overflow-x: auto;
+    text-align: left;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+  }
+  .filter-controls li {
+    font-size: 14px;
+    margin-right: 10px;
+    display: inline-block;
+  }
+}

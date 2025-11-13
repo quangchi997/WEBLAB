@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Sản phẩm Bi-a chính hãng" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sản phẩm | QC Billiards</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="header__main">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-3 col-6">
+              <div class="header__logo">
+                <a href="index.html"
+                  ><img src="./Images/logo.png" alt="Logo"
+                /></a>
+              </div>
+            </div>
+            <div class="col-lg-9 col-6">
+              <nav class="header__menu">
+                <ul>
+                  <li><a href="index.html">Trang chủ</a></li>
+                  <li class="active"><a href="sanpham.html">Sản phẩm</a></li>
+                  <li><a href="blog.html">Bài viết</a></li>
+                  <li><a href="contact">Liên hệ</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="featured spad" id="shop">
+      <div class="container">
+        <div class="section-title">
+          <h2>Tất cả sản phẩm</h2>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="hero__departments" style="margin-bottom: 30px">
+              <div class="hero__departments__all" style="display: none">
+                <i class="fa fa-bars"></i>
+                <span>Danh mục</span>
+              </div>
+              <ul
+                class="departments__menu"
+                style="display: flex; justify-content: center"
+                id="filterControls"
+              >
+                <li class="active" data-filter="all"><a href="#">Tất cả</a></li>
+                <li data-filter=".ban-bia"><a href="#">Bàn Bi-a</a></li>
+                <li data-filter=".gay-bia"><a href="#">Gậy Bi-a</a></li>
+                <li data-filter=".phu-kien"><a href="#">Phụ kiện</a></li>
+                <li data-filter=".bi-a-3-bang"><a href="#">Bi-a 3 Băng</a></li>
+                <li data-filter=".bi-a-pool"><a href="#">Bi-a Pool</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="row featured__filter" id="productGrid"></div>
+      </div>
+    </section>
+
+    <footer class="footer spad" id="contact">
+      <div class="container">
+        <p>
+          ©
+          <script>
+            document.write(new Date().getFullYear());
+          </script>
+          QC Billiards. All rights reserved.
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mixitup@3.3.1/dist/mixitup.min.js"></script>
+    <script src="js/responsive.js"></script>
+    <script src="js/billiards.js"></script>
+  </body>
+</html>

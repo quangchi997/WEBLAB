@@ -1,0 +1,183 @@
+$(document).ready(function () {
+
+  $("#preloder").fadeOut(300);
+
+  $(".set-bg").each(function () {
+    var bg = $(this).attr("data-setbg");
+    if (bg) $(this).css("background-image", "url(" + bg + ")");
+  });
+
+  $(".latest-product__slider").owlCarousel({
+    loop: true,
+    margin: 10,
+    nav: false,
+    items: 1,
+    dots: true,
+    autoplay: true,
+    autoplayTimeout: 4000
+  });
+
+  // 1. MixItUp Initialization
+  let mixer;
+  try {
+    mixer = mixitup('#productGrid', {
+      selectors: { target: '.mix' },
+      animation: { duration: 250 }
+    });
+  } catch (e) {
+    console.warn('mixitup init failed', e);
+  }
+
+  // 2. Cập nhật đối tượng sản phẩm với URL ảnh và Category
+  const products = {
+    B1: { id: "B1", title: "Bàn Rasson HERO 8ft", price: 45000000, img: "uploaded:image_bac077.jpg-628d5d4d-0f06-4071-b0e5-6b980953af2c", desc: "Bàn giải đấu, khung gỗ nguyên khối, vải chất lượng cao.", category: "Bàn Bi-a" },
+    B2: { id: "B2", title: "Bàn Club 7ft", price: 18000000, img: "https://images.unsplash.com/photo-1600713905843-2d44d4d4a1d3?q=80&w=800&auto=format&fit=crop", desc: "Bàn phù hợp CLB, cân bằng tốt, giá hợp lý.", category: "Bàn Bi-a" },
+    C1: { id: "C1", title: "Gậy Cuetec Pro X", price: 4500000, img: "https://images.unsplash.com/photo-1598813728630-f207044f51e5?q=80&w=1200&auto=format&fit=crop", desc: "Gậy carbon, cân bằng, độ nẩy tốt.", category: "Gậy Bi-a" },
+    C2: { id: "C2", title: "Gậy MIT Classic", price: 2200000, img: "https://i.imgur.com/classic_cue.jpg", desc: "Gậy dành cho CLB và người mới.", category: "Gậy Bi-a" },
+    A1: { id: "A1", title: "Bao gậy leather", price: 350000, img: "https://i.imgur.com/cue_case.jpg", desc: "Bao gậy nhiều ngăn, da PU bền.", category: "Phụ kiện" },
+    BL1: { id: "BL1", title: "Bóng Aramith Premium", price: 1200000, img: "uploaded:image_bad31e.jpg-ffb363e1-807b-4466-a942-47811047d48b", desc: "Bóng tiêu chuẩn thi đấu, độ chính xác cao.", category: "Bóng" }
+  };
+
+  var cart = {};
+
+  function formatMoney(v) { return v.toLocaleString('vi-VN') + '₫'; }
+  function updateCartUI() {
+    var count = Object.values(cart).reduce((s, x) => s + x.qty, 0);
+    var total = Object.values(cart).reduce((s, x) => s + x.qty * x.price, 0);
+    $("#cartCount").text(count);
+    $("#favCount").text(0);
+    $("#cartPrice").text(formatMoney(total));
+    // Đã xóa cập nhật cho mobile không cần thiết
+  }
+
+  // 3. FIX: Filter Click Handler cho Menu Departments và Search Dropdown
+  const allFilterLinks = $(".departments__menu li[data-filter], .dropdown__menu a[data-filter]");
+  $(document).on("click", allFilterLinks.selector, function (e) {
+    e.preventDefault();
+    if (!mixer) return;
+
+    allFilterLinks.removeClass("active");
+
+    let target = $(this);
+    let filter = target.data("filter") || target.closest('li').data("filter");
+
+    if (filter) {
+        mixer.filter(filter);
+        
+        // Thiết lập trạng thái active đồng bộ
+        let filterClass = filter.replace('.', '');
+        $(`.departments__menu li[data-filter="${filter}"]`).addClass("active");
+        $(`.dropdown__menu a[data-filter="${filter}"]`).addClass("active");
+    }
+  });
+
+
+  $(document).on("click", ".addcart-btn", function (e) {
+    e.preventDefault();
+    var id = $(this).data("id");
+    var p = products[id];
+    if (!p) return alert("Sản phẩm không tồn tại (demo).");
+    if (!cart[id]) cart[id] = { ...p, qty: 0 };
+    cart[id].qty++;
+    updateCartUI();
+    $(this).addClass('added');
+    setTimeout(() => $(this).removeClass('added'), 600);
+  });
+
+  $(document).on("click", ".fav-btn", function (e) {
+    e.preventDefault();
+    $(this).toggleClass('active');
+    var current = parseInt($("#favCount").text(), 10) || 0;
+    if ($(this).hasClass('active')) {
+        $("#favCount").text(current + 1);
+        alert("Đã thêm vào Yêu thích (demo)");
+    } else {
+         $("#favCount").text(Math.max(0, current - 1));
+         alert("Đã xóa khỏi Yêu thích (demo)");
+    }
+  });
+
+
+  function openQuick(id) {
+    var p = products[id];
+    if (!p) return;
+    
+    $("#qmImg").attr("src", p.img);
+    $("#qmTitle").text(p.title);
+    $("#qmPrice").text(formatMoney(p.price));
+    $("#qmDesc").text(p.desc);
+    $("#qmCategory").text(p.category); // Hiển thị danh mục
+    $("#quickModal").fadeIn(160);
+    $("#qmAddCart").data("id", id);
+  }
+  $(document).on("click", ".quickview-btn", function (e) {
+    e.preventDefault();
+    var id = $(this).data("id");
+    openQuick(id);
+  });
+  $(".quick-view-modal-close, #qmClose").on("click", function () { $("#quickModal").fadeOut(120); });
+  $("#qmAddCart").on("click", function () {
+    var id = $(this).data("id");
+    if (!cart[id]) cart[id] = { ...products[id], qty: 0 };
+    cart[id].qty++;
+    updateCartUI();
+    $("#quickModal").fadeOut(120);
+    alert("Đã thêm vào giỏ (demo)");
+  });
+
+  
+  // 4. FIX: Logic tìm kiếm sử dụng MixItUp
+  $("#searchBtn").on("click", function () {
+    var q = $("#searchInput").val().trim().toLowerCase();
+    if (!mixer) return;
+
+    // Reset filter nếu ô tìm kiếm trống
+    if (!q) { 
+        mixer.filter('all'); 
+        allFilterLinks.removeClass('active');
+        $(`.departments__menu li[data-filter="all"]`).addClass("active");
+        return; 
+    }
+
+    var matchedSelectors = [];
+    // Tìm kiếm trong tất cả sản phẩm đang hiển thị
+    $(".featured__item__text h6").each(function () {
+      var txt = $(this).text().toLowerCase();
+      var parent = $(this).closest('.mix');
+      var id = parent.data('id');
+      if (txt.indexOf(q) !== -1) {
+        matchedSelectors.push(`[data-id="${id}"]`); 
+      }
+    });
+
+    // Áp dụng bộ lọc tìm kiếm
+    if (matchedSelectors.length > 0) {
+         mixer.filter(matchedSelectors.join(','));
+    } else {
+         mixer.filter('none'); 
+    }
+    
+    // Bỏ chọn bộ lọc danh mục khi đang tìm kiếm
+    allFilterLinks.removeClass('active');
+  });
+
+
+  $("#subscribeBtn").on("click", function () {
+    var e = $("#subscribeEmail").val().trim();
+    if (!e) { alert("Nhập email."); return; }
+    alert("Cảm ơn! (Demo) Đã đăng ký: " + e);
+    $("#subscribeEmail").val("");
+  });
+
+
+  $("#cartBtn").on("click", function (e) {
+    e.preventDefault();
+    var summary = Object.values(cart).map(i => `${i.title} x${i.qty} — ${formatMoney(i.qty * i.price)}`).join("\n");
+    if (!summary) alert("Giỏ hàng trống.");
+    else alert("Giỏ hàng (demo):\n\n" + summary + "\n\nTổng: " + $("#cartPrice").text());
+  });
+  
+  // Cập nhật UI ban đầu
+  updateCartUI();
+
+});
